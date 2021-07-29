@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='GB 2321'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>My page</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .ball {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            /* background-color: brown; */
+            text-align: center;
+            line-height: 2;
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            top:200px;
+        }
+        .ball1 {
+            background-color: red;
+            left: 200px;
+        }
+        .ball2{
+            background-color: green;
+            left: 280px;
+        }
+        .ball3{
+            background-color: #0000FF;
+            left: 360px;
+        }
+        .name{
+            width: 400px;
+            height: 150px;
+            color: rgb(115, 253, 235) ;
+            text-align: left;
+            font-size: 120px;
+            margin-left: 1300px;
+            background-color: rgba(0 , 0, 0 , 0.1);
+            margin-top: 400px;
+        }    
+        #wrapper{ 
+            margin: 10px 10px 10px 10px; 
+            padding:20px 10px 10px 20px; 
+            border-top: #CCC 2px solid; 
+            border-RIGHT: #CCC 2px solid; 
+            border-BOTTOM: #CCC 2px solid; 
+            border-LEFT: #CCC 2px solid; 
+            color: #666; 
+            text-align: center;
+            line-height: 150%; 
+            WIDTH:60%; 
+            opacity: 1;
+        } 
+        body{
+            opacity: 1;
+            columns: 2;
+            background-color: grey;
+        }
+        .bodystyle{
+            opacity:1; 
+            width:100%;
+            position:absolute;
+            background:url("background.jpg") ; 
+            background-size: contain;
+        }
+
+        p{
+            background-color: rgba(0,0,0,0.1);
+            color: rgb(224, 122, 122);
+            text-align: left;
+            width: 400px;
+            margin-left: 1300px;
+        }
+        table{
+            left: 100px;
+            top: 500px;
+            position: absolute;
+            width: 810px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            border-style: solid;
+            border-width: 5px;
+            border-collapse: collapse;
+            border-color: black;
+        }
+        td{
+            border-style: solid;
+            border-width: 3px;
+            width: 270px;
+            border-collapse: collapse;
+        }
+        tr:nth-child(even){background-color: #f2f2f2}
+        tr:nth-child(odd){background-color: grey;}
+        tr:nth-child(1){background-color:rgb(104, 217, 104);}
+        img{
+            margin-left: 1400px;
+            top: 0px;
+            position: absolute;
+        }
+        .more{
+            top:910px;
+            left: 850px;
+            position: absolute;
+        }
+        footer{
+            top:1000px;
+            left:900px;
+            position: absolute;
+            color: rgb(74, 83, 251);
+        }
+        .score{
+            color:black;
+        }
+        .hour{
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bodystyle">
+    <div class="ball ball1"></div>
+    <div class="ball ball2"></div>
+    <div class="ball ball3"></div>
+    <script>
+        var ball1 = document.querySelectorAll(".ball1")[0];
+        var ball2 = document.querySelector(".ball2");
+        var ball3 = document.querySelector(".ball3");
+        function animation(ball, distance, callback) {
+            setTimeout(function(){
+            var marginTop = parseInt(ball.style.top, 10);
+            if(isNaN(marginTop))
+                marginTop = 200;
+            if(marginTop===distance)
+                callback();
+            else {
+                if(marginTop < distance)
+                    marginTop += 5;
+                else 
+                    marginTop -= 5;
+                ball.style.top=marginTop + "px";
+                animation(ball, distance, callback);
+            }
+            }, 10);
+        }
+            animation(ball1, 250, ()=>{
+                animation(ball2,300,()=>{
+                    animation(ball3, 350, ()=>{
+                        animation(ball3,200,()=>{
+                            animation(ball2,200,()=>{
+                                animation(ball1,200,()=>{
+                                    animation(ball1,350,()=>{
+                                        animation(ball2,300,()=>{
+                                            animation(ball3,250,()=>{
+                                                animation(ball3,200,()=>{
+                                                    animation(ball2,200,()=>{
+                                                        animation(ball1,200,()=>{})})})})})
+            }
+                )
+            }
+            )})})})})})
+    </script>
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <img src="profile.png" alt="profile picture" width="320" height="300" >
+            <h1 class="name">沈磊</h1>
+            <style type="text/css">
+                .phoneNumber::before{
+                content:'\260E';
+                font-size: 30px;
+                background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <p class="phoneNumber">电话：13392402806</p>
+            <style type="text/css">
+                .num::before{
+                    content: '\2116';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+
+            </style>
+            <p class="num">学号：U201915616</p>
+            <style type="text/css">
+                .email::before{
+                    content: '\2709';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <p class="email">邮箱：<a href="mailto:1220093416@qq.com">1220093416@qq.com</a></p>
+            <style type="text/css">
+                .interst::before{
+                    content: '\2764';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <style type="text/css">
+                .interst::before{
+                    content: '\2764';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style> 
+            <p class="interst">爱好：追剧，玩游戏</p>
+            <style type="text/css">
+                .strength::before{
+                    content: '\2654';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <p class="strength">特长：唠嗑</p>
+            <style type="text/css">
+                .birth::before{
+                    content: '\1F382';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <p class="birth">生日：2001/6/21</p>
+            <style type="text/css">
+                .class::before{
+                    content: '\26EA';
+                    font-size: 30px;
+                    background-color: rgba(256 , 256, 256 , 0.5);
+                }
+            </style>
+            <p class="class">班级：校交1901</p>
+            
+        </div>
+    <div id="s111">
+        <table id="t1" frame="box">
+            <tr>
+                <td>学科</td>
+                <td>学时</td>
+                <td>分数</td>
+            </tr>
+            <tr>
+                <td class="subject">微积分</td>
+                <td class="hour" id="hour0">5</td>
+                <td class="score" id="score0">96</td>
+            </tr>
+            <tr>
+                <td class="subject">数据结构</td>
+                <td class="hour" id="hour1">3.5</td>
+                <td class="score" id="score1">
+                    97               
+                </td>
+            </tr>
+            <tr>
+                <td class="subject">面向对象</td>
+                <td class= "hour" id="hour2">2.5</td>
+                <td class="score" id="score2">96</td>
+            </tr>
+            <tr>
+                <td class="subject">大学物理</td>
+                <td class="hour" id="hour3">4</td>
+                <td class="score" id="score3">94</td>
+            </tr>
+            <tr>
+                <td class="subject">线性代数</td>
+                <td class="hour" id="hour4">2</td>
+                <td class="score" id="score4">92</td>
+            </tr>
+            <script>
+                var table = document.getElementById("s111");
+            </script>
+            <tr>
+                <td>平均</td>
+                <td>\</td>
+                <td id="avg">
+                </td>
+            </tr>
+            
+        </table>
+        <script>
+            function insert_row(id){
+                    var x=document.getElementById(id).insertRow(1);
+                    var y = x.insertCell(0);
+                    var input1=document.createElement("input");
+                    input1.type="text";
+                    input1.value="请输入";
+                    input1.onblur=function(){
+                        var newEL=document.createElement('span');
+                        // newEL.className="subject"
+                        newEL.innerHTML=input1.value;
+                        input1.parentNode.replaceChild(newEL,input1)
+                    }//在js的绑定事件和html里的不一样
+                    y.appendChild(input1);
+
+                    var z = x.insertCell(1);
+                    var input2=document.createElement("input");
+                    input2.type="text";
+                    input2.value="请输入";
+                    input2.className="hour";
+                    input2.onblur=function(){
+                        var newEL=document.createElement('span');
+                        newEL.className="hour"
+                        newEL.innerHTML=input2.value;
+                        input2.parentNode.replaceChild(newEL,input2)
+                    }
+                    z.appendChild(input2);
+
+                    var a = x.insertCell(2);
+                    var input3=document.createElement("input");
+                    input3.type="text";
+                    input3.value="请输入";
+                    input3.className="score";
+                    input3.onblur=function(){
+                        var newEL=document.createElement('span');//创建一个新元素，将input的值放入该元素，再用该元素替代input
+                        newEL.className="score"//新元素的类名要和原类名保持一致
+                        newEL.innerHTML=input3.value;
+                        input3.parentNode.replaceChild(newEL,input3)
+                        calculate('avg')
+                    }
+                    a.appendChild(input3);
+                }
+            function calculate(id){
+                var avg=document.getElementById(id)
+                var table=document.getElementById("t1")
+                var sum=0
+                var hours=0
+                var score=document.getElementsByClassName("score")
+                var hour=document.getElementsByClassName("hour")
+                for (var i=0;i<score.length;i++)
+                {
+                    sum+=parseInt(score[i].innerHTML)*parseInt(hour[i].innerHTML)
+                    hours+=parseInt(hour[i].innerHTML)
+                }
+                var score_avg=(sum/hours)
+                let newValue=document.createElement('span')
+                newValue.innerHTML=score_avg
+                avg.innerHTML=parseFloat(newValue.innerHTML)
+                
+            }
+            function delete_row(id){
+                ob=document.getElementById(id);
+                ob.deleteRow(1)
+                calculate('avg')
+            }
+            function change(id)
+            {
+                var id_real=id-1
+                var x=document.createElement("input")
+                var t=document.getElementById("score"+id_real)//获取要修改的格子
+                x.type="text"
+                x.onblur=function(){
+                        var newEL=document.createElement('td');
+                        newEL.className="score"
+                        newEL.innerHTML=x.value;
+                        x.parentNode.replaceChild(newEL,x)
+                        calculate('avg')
+                }
+                t.parentNode.replaceChild(x,t)
+            }
+            function search(subject){
+                alert(subject)
+                var t_list=document.getElementsByClassName("subject")
+                var k=0
+                var flag=0
+                for (var i=0;i<t_list.length;i++)//找到学科所在行
+                {
+                    if(t_list[i].innerHTML===subject)
+                    {
+                        k=i
+                        flag=1
+                    }
+                }
+                if(flag===0)
+                {
+                    alert("未找到该科目")
+                    return;
+                }
+                alert("k="+k)
+                var score_k=document.getElementById("score"+k).innerHTML
+                alert("该科目成绩为"+parseInt(score_k))
+            }
+        </script>
+        <input type="button" onclick="insert_row('t1')" value="Insert new row">
+        <input type="button" onclick="delete_row('t1')" value="Delete a row">
+        <input type="button" onclick="calculate('avg')" value="Calculate">
+        <ur>
+            <br></br>修改成绩：第
+            <input type="text" onblur="change(this.value)">
+            行
+        </ur>
+        <ur>
+            <br></br>查询成绩：
+            <input type="text" onblur="search(this.value)">
+        </ur>
+        <a href="http://aia.hust.edu.cn/" class="more">学院官网</a>
+    </div>
+    <footer>Designed by Shenlei</footer>
+    </div>
+</body>
+</html>
